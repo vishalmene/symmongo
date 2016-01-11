@@ -45,7 +45,7 @@ class StoreController extends Controller
 	    if (!$product) {
 	        throw $this->createNotFoundException('No product found for id '.$id);
 	    }
-	    echo "<pre>";exit(\Doctrine\Common\Util\Debug::dump($product)).'--';
+	  //  echo "<pre>";exit(\Doctrine\Common\Util\Debug::dump($product)).'--';
 	    // do something, like pass the $product object into a template
 	}	
 }
