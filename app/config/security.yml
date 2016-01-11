@@ -1,0 +1,40 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+
+    role_hierarchy:
+        ROLE_USER:        ROLE_USER
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH ]
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        my_custom_hwi_provider:
+            id: ib_user.oauth_user_provider
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            pattern: ^/
+            anonymous: true
+            logout: true
+            logout:
+                path:   /logout
+                target: /
+            oauth:
+                resource_owners:
+                    google: "/login/check-google"
+                login_path: /login
+                failure_path: /login
+                oauth_user_provider:
+                    service: ib_user.oauth_user_provider
+ 
+    access_control:
+        - { path: ^/admin/users, roles: ROLE_SUPER_ADMIN }
+        - { path: ^/presence, roles: ROLE_ADMIN }
+        - { path: ^/user, roles: ROLE_USER }

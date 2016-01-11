@@ -1,0 +1,37 @@
+<?php
+
+namespace IB\StoreBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
+/**
+* @MongoDB\Document
+*/
+class Project
+{
+
+/**
+* @MongoDB\Id
+*/
+protected $id;
+
+/**
+* @MongoDB\String
+*/
+protected $name;
+
+/**
+* @MongoDB\Float
+*/
+protected $cost;
+
+/**
+* @MongoDB\Date
+*/
+protected $initDate;
+
+/**
+* @MongoDB\File
+*/
+protected $refDoc;
+}

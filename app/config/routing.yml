@@ -1,0 +1,22 @@
+default:
+    pattern:  /
+    defaults: { _controller: "StoreBundle:Store:index" }
+
+store:
+    resource: "@StoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
+google_login:
+    path: /login/check-google
+
+logout:
+    path:   /logout
