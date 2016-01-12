@@ -1,13 +1,13 @@
 <?php
 namespace IB\StoreBundle\Auth;
  
-use HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider;
-use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
+/*use HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider;
+use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;*/
 
  
-class OAuthProvider extends OAuthUserProvider
+class OAuthProvider //extends OAuthUserProvider
 {
-    protected $session,  $admins;
+/*    protected $session,  $admins;
  
     public function __construct($session, $service_container)
     {
@@ -25,5 +25,5 @@ class OAuthProvider extends OAuthUserProvider
     {
         //Data from Google response
         echo "<pre>";exit(\Doctrine\Common\Util\Debug::dump($response)).'--';
-    }
+    }*/
 }
